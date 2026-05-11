@@ -24,7 +24,7 @@ jobs:
 
       # Шаг 3: Установка зависимостей (npm ci)
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # Шаг 4: Компиляция TypeScript (проверка сборки)
       - name: Build project
