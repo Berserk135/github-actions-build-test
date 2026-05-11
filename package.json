@@ -1,0 +1,13 @@
+{
+  "name": "my-test-project",
+  "version": "1.0.0",
+  "description": "Test project for GitHub Actions build check",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

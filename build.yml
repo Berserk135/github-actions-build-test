@@ -1,0 +1,35 @@
+name: CI - Build Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Клонирование репозитория
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Шаг 2: Установка Node.js (версия 18)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # Шаг 3: Установка зависимостей (npm ci)
+      - name: Install dependencies
+        run: npm ci
+
+      # Шаг 4: Компиляция TypeScript (проверка сборки)
+      - name: Build project
+        run: npm run build
+
+      # (Опционально) Шаг 5: Запуск тестов (если есть)
+      # - name: Run tests
+      #   run: npm test
